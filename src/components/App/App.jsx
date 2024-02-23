@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <div>
-      <h1>Phonebook</h1>
+      <h1 className={css.title}>Phonebook</h1>
       <ContactForm />
       <SearchBox value={query} onChange={setQuery} />
       <ContactList contacts={filteredContacts} />
