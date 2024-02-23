@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import ContactList from '../ContactList/ContactList';
 import SearchBox from '../SearchBox/SearchBox';
+import ContactForm from '../ContactForm/ContactForm';
+import css from './App.module.css';
 
 export default function App() {
   const state = [
@@ -20,7 +22,7 @@ export default function App() {
   return (
     <div>
       <h1>Phonebook</h1>
-      {/* <ContactForm /> */}
+      <ContactForm />
       <SearchBox value={query} onChange={setQuery} />
       <ContactList contacts={filteredContacts} />
     </div>
