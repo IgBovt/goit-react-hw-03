@@ -1,13 +1,14 @@
 import { Formik, Form, Field } from 'formik';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { IoIosPersonAdd } from 'react-icons/io';
+import { useId } from 'react';
 import css from './ContactForm.module.css';
 
 const initialValues = { name: '', number: '' };
 
 export default function ContactForm() {
-  const nameID = nanoid();
-  const numberID = nanoid();
+  const nameID = useId();
+  const numberID = useId();
 
   return (
     <Formik initialValues={initialValues}>
