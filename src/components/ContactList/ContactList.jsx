@@ -3,7 +3,7 @@ import css from './ContactList.module.css';
 
 export default function ContactList({ contacts, onDelete }) {
   return contacts.length < 1 ? (
-    <p className={css.text}>You don`t have any contacts yet</p>
+    <p className={css.text}>We haven`t found any contacts</p>
   ) : (
     <ul className={css.list}>
       {contacts.map(({ name, number, id }) => (

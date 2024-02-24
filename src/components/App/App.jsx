@@ -3,12 +3,22 @@ import ContactList from '../ContactList/ContactList';
 import SearchBox from '../SearchBox/SearchBox';
 import ContactForm from '../ContactForm/ContactForm';
 import css from './App.module.css';
+import data from '../../data/contacts.json';
 import { nanoid } from 'nanoid';
 
 export default function App() {
-  const [contacts, setContacts] = useState(
-    JSON.parse(window.localStorage.getItem('contacts'))
-  );
+  const getContacts = () => {
+    const defaultContacts = data;
+    const savedContacts = JSON.parse(window.localStorage.getItem('contacts'));
+    const filteredSavedContacts = savedContacts.filter(savedContact => {
+      return !defaultContacts.some(
+        defaultContact => defaultContact.id === savedContact.id
+      );
+    });
+    return [...defaultContacts, ...filteredSavedContacts];
+  };
+
+  const [contacts, setContacts] = useState(getContacts);
   const [query, setQuery] = useState('');
 
   const filteredContacts = contacts.filter(
