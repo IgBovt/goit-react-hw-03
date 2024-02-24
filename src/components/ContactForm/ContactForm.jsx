@@ -1,6 +1,7 @@
 import { Formik, Form, Field } from 'formik';
 import { nanoid } from 'nanoid';
 import { IoIosPersonAdd } from 'react-icons/io';
+import css from './ContactForm.module.css';
 
 const initialValues = { name: '', number: '' };
 
@@ -10,17 +11,31 @@ export default function ContactForm() {
 
   return (
     <Formik initialValues={initialValues}>
-      <Form>
-        <div>
-          <label htmlFor={nameID}>Name</label>
-          <Field type="text" name="name" id={nameID}></Field>
+      <Form className={css.form}>
+        <div className={css.wrapper}>
+          <label className={css.label} htmlFor={nameID}>
+            Name:
+          </label>
+          <Field
+            className={css.input}
+            type="text"
+            name="name"
+            id={nameID}
+          ></Field>
         </div>
-        <div>
-          <label htmlFor={numberID}>Number</label>
-          <Field type="text" name="number" id={numberID}></Field>
+        <div className={css.wrapper}>
+          <label className={css.label} htmlFor={numberID}>
+            Number:{' '}
+          </label>
+          <Field
+            className={css.input}
+            type="text"
+            name="number"
+            id={numberID}
+          ></Field>
         </div>
-        <button>
-          <IoIosPersonAdd size={20} />
+        <button className={css.btn}>
+          <IoIosPersonAdd className={css.icon} size={20} />
           Add contact
         </button>
       </Form>
