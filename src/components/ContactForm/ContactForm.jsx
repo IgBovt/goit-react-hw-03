@@ -26,14 +26,14 @@ export default function ContactForm({ onAdd }) {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={FeedbackSchema}
-    >
-      <Form className={css.form}>
-        <div className={css.container}>
-          <div className={css.wrapper}>
+    <>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={FeedbackSchema}
+      >
+        <Form className={css.form}>
+          <div className={css.container}>
             <label className={css.label} htmlFor={nameID}>
               Name:
             </label>
@@ -43,13 +43,12 @@ export default function ContactForm({ onAdd }) {
               name="name"
               id={nameID}
             ></Field>
+            <div className={css.error}>
+              <ErrorMessage name="name" as="span" />
+            </div>
           </div>
-          <div className={css.errorWrapper}>
-            <ErrorMessage name="name" as="span" />
-          </div>
-        </div>
-        <div className={css.container}>
-          <div className={css.wrapper}>
+
+          <div className={css.container}>
             <label className={css.label} htmlFor={numberID}>
               Number:
             </label>
@@ -59,16 +58,17 @@ export default function ContactForm({ onAdd }) {
               name="number"
               id={numberID}
             ></Field>
+            <div className={css.error}>
+              <ErrorMessage name="number" as="span" />
+            </div>
           </div>
-          <div className={css.errorWrapper}>
-            <ErrorMessage name="number" as="span" />
-          </div>
-        </div>
-        <button type="submit" className={css.btn}>
-          <IoIosPersonAdd className={css.icon} size={20} />
-          Add contact
-        </button>
-      </Form>
-    </Formik>
+          <button type="submit" className={css.btn}>
+            <IoIosPersonAdd className={css.icon} size={20} />
+            Add contact
+          </button>
+        </Form>
+      </Formik>
+      <hr className={css.line} />
+    </>
   );
 }
