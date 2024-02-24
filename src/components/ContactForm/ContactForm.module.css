@@ -17,12 +17,8 @@
   border: 1px rgb(157, 157, 157) solid;
 }
 
-.label {
-  margin-right: 12px;
-}
 .wrapper {
   display: flex;
-  margin-bottom: 24px;
   justify-content: space-between;
 }
 .btn {
@@ -46,4 +42,10 @@
   background-color: #878585;
   color: white;
   border: 1px solid #878585;
+}
+.container {
+  margin-bottom: 8px;
+}
+.errorWrapper {
+  height: 24px;
 }
