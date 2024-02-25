@@ -9,14 +9,8 @@ import { nanoid } from 'nanoid';
 export default function App() {
   const getContacts = () => {
     const defaultContacts = data;
-    const savedContacts =
-      JSON.parse(window.localStorage.getItem('contacts')) || [];
-    const filteredSavedContacts = savedContacts.filter(savedContact => {
-      return !defaultContacts.some(
-        defaultContact => defaultContact.id === savedContact.id
-      );
-    });
-    return [...defaultContacts, ...filteredSavedContacts];
+    const savedContacts = window.localStorage.getItem('contacts');
+    return savedContacts !== null ? JSON.parse(savedContacts) : defaultContacts;
   };
 
   const [contacts, setContacts] = useState(getContacts);
